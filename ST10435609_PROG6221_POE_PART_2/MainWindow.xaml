@@ -25,11 +25,20 @@
                    />
             
             <!-- button to start AI -->
+            <TextBlock Text="Cybersecurity Awareness Bot"
+                    Foreground="Cyan"
+                    FontSize="28"
+                    FontWeight="Bold"
+                    Margin="0,200,0,10"
+                    HorizontalAlignment="Center"/>
             <Button 
                     Content="Start AI" 
                     Height="30" 
                     Width="100" 
                     Margin="0,250,0,100" 
+                    FontWeight="Bold"
+                    Background="Cyan"
+                    Foreground="Black"
                 
                     Click="start_ai"
                     />
@@ -42,10 +51,19 @@
             ><!-- start of username grid -->
             
             <!-- TextBox to prompt user -->
+            <TextBlock Text="Enter UserName"
+                FontSize="26"
+                Foreground="#374151"
+                FontWeight="Bold"
+                Margin="300,150,0,20"/>
+
             <TextBox 
                 x:Name="user_name"
                 Height="30"
                 Width="200"
+                Background="#374151"
+                Foreground="White"
+                BorderBrush="Cyan"
                 />
             
             <!-- button to submit username -->
@@ -54,6 +72,9 @@
                 Height="30"
                 Width="100"
                 Margin="0,150,0,50"
+                FontWeight="Bold"
+                Background="Cyan"
+                Foreground="Black"
                 
                 Click="submit_name"
                 />
@@ -73,6 +94,10 @@
                 Height="200"
                 Width="600"
                 Margin="0,0,0,160"
+                Background="#111827"
+                Foreground="White"
+                FontSize="16"
+                BorderThickness="0"
                 />
             
             <!-- TextBox for user input -->
@@ -81,6 +106,11 @@
                 Height="50"
                 Width="300"
                 Margin="0,200,0,0"
+                FontSize="16"
+                Background="#374151"
+                Foreground="White"
+                BorderBrush="Cyan"
+                Padding="10"
                 />
 
             <!-- Button to send message -->
@@ -89,6 +119,10 @@
                 Height="30"
                 Width="100"
                 Margin="0,350,0,0"
+                FontSize="16"
+                FontWeight="Bold"
+                Background="Cyan"
+                Foreground="Black"
                 
                 Click="send_question"
                 />
