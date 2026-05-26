@@ -11,7 +11,11 @@
         <!-- start of the grid -->
         
     <!-- grid for logo -->
-        <Grid>  <!-- start of logo grid --> 
+        <Grid
+            x:Name="logo_grid"
+            Visibility="Visible"
+            >  <!-- start of logo grid --> 
+            
             
             <!-- image logo display -->
             <Image Source= "/logo.jpg" 
@@ -21,14 +25,76 @@
                    />
             
             <!-- button to start AI -->
-            <Button Content="Start Chatbot" 
+            <Button 
+                    Content="Start AI" 
                     Height="30" 
                     Width="100" 
                     Margin="0,250,0,100" 
+                
+                    Click="start_ai"
                     />
 
-        </Grid>
+        </Grid> <!-- end of logo grid -->
 
-    </Grid><!-- end of grid -->
+        <Grid
+            x:Name="username_grid"
+            Visibility="Hidden"
+            ><!-- start of username grid -->
+            
+            <!-- TextBox to prompt user -->
+            <TextBox 
+                x:Name="user_name"
+                Height="30"
+                Width="200"
+                />
+            
+            <!-- button to submit username -->
+            <Button
+                Content="Submit"
+                Height="30"
+                Width="100"
+                Margin="0,150,0,50"
+                
+                Click="submit_name"
+                />
+
+        </Grid><!-- end of username grid -->
+
+        <!-- Chat grid -->
+        <Grid
+            x:Name="chats_grid"
+            Visibility="Hidden"
+            >
+            <!-- start of chats grid -->
+
+           <!-- list view to add chats -->
+            <ListView  
+                x:Name="chats_list"
+                Height="200"
+                Width="600"
+                Margin="0,0,0,160"
+                />
+            
+            <!-- TextBox for user input -->
+            <TextBox 
+                x:Name="user_input"
+                Height="50"
+                Width="300"
+                Margin="0,200,0,0"
+                />
+
+            <!-- Button to send message -->
+            <Button
+                Content="submit"
+                Height="30"
+                Width="100"
+                Margin="0,350,0,0"
+                
+                Click="send_question"
+                />
+
+        </Grid><!-- end of chats grid -->
+
+    </Grid><!-- end of parent grid -->
     
 </Window>
