@@ -27,4 +27,4 @@ jobs:
       run: nuget restore
 
     - name: Build solution
-      run: msbuild ST10435609_PROG6221_POE_PART_2.sln
+      run: msbuild $(Get-ChildItem -Filter "*.sln" -Name
