@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+//the import for the NLP
+using Microsoft.ML;
 
 namespace ST10435609_PROG6221_POE_PART_2
 {// start of namespace
@@ -128,13 +130,17 @@ namespace ST10435609_PROG6221_POE_PART_2
             InitializeComponent();
 
             // creating an instance for the class greet_user with a constructor
-            new greet_user();
+           // new greet_user();
 
         }// end of constructor
 
 
         private void start_ai(object sender, RoutedEventArgs e)
         {// start of method
+
+            //play greeting sound
+
+            new greet_user();
 
             // set the logo page grid to be invisible
             logo_grid.Visibility = Visibility.Hidden;
