@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ST10435609_PROG6221_POE_PART_2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="750" Width="1000">
    
     <Grid>
         <!-- start of the grid -->
@@ -19,8 +19,8 @@
             
             <!-- image logo display -->
             <Image Source= "/logo.jpg" 
-                   Height="200"
-                   Width="300"
+                   Height="300"
+                   Width="400"
                    Margin="0,0,0,250"
                    />
             
@@ -29,12 +29,13 @@
                     Foreground="Cyan"
                     FontSize="28"
                     FontWeight="Bold"
-                    Margin="0,200,0,10"
+                    Margin="0,330,0,10"
                     HorizontalAlignment="Center"/>
             <Button 
                     Content="Start AI" 
-                    Height="30" 
-                    Width="100" 
+                    FontSize="18"
+                    Height="50" 
+                    Width="150" 
                     Margin="0,250,0,100" 
                     FontWeight="Bold"
                     Background="Cyan"
@@ -55,12 +56,13 @@
                 FontSize="26"
                 Foreground="#374151"
                 FontWeight="Bold"
-                Margin="300,150,0,20"/>
+                Margin="390,250,0,20"/>
 
             <TextBox 
                 x:Name="user_name"
-                Height="30"
-                Width="200"
+                Height="50"
+                FontSize="16"
+                Width="250"
                 Background="#374151"
                 Foreground="White"
                 BorderBrush="Cyan"
@@ -91,21 +93,26 @@
            <!-- list view to add chats -->
             <ListView  
                 x:Name="chats_list"
-                Height="200"
-                Width="600"
+                Height="500"
+                Width="900"
                 Margin="0,0,0,160"
                 Background="#111827"
                 Foreground="White"
                 FontSize="16"
                 BorderThickness="0"
                 />
+            <TextBlock Text="Enter Your question"
+                FontSize="20"
+                Foreground="#374151"
+                FontWeight="Bold"
+                Margin="400,570,0,20"/>
             
             <!-- TextBox for user input -->
             <TextBox 
                 x:Name="user_input"
                 Height="50"
                 Width="300"
-                Margin="0,200,0,0"
+                Margin="0,550,0,0"
                 FontSize="16"
                 Background="#374151"
                 Foreground="White"
@@ -118,7 +125,7 @@
                 Content="submit"
                 Height="30"
                 Width="100"
-                Margin="0,350,0,0"
+                Margin="0,650,0,0"
                 FontSize="16"
                 FontWeight="Bold"
                 Background="Cyan"
