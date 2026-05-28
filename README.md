@@ -71,12 +71,9 @@ It then responds with supportive and appropriate feedback.
 
 Memory Feature
 
-The chatbot remembers the user's favourite cybersecurity topic.
+The chatbot remembers the user's favourite cybersecurity topic. 
 
-Example:
-User:
-```text
-My favourite topic is phishing
+
 
 
 <img width="1915" height="905" alt="workflow3" src="https://github.com/user-attachments/assets/b7dc6768-d6b1-441b-ab51-e60f3a021f18" />
