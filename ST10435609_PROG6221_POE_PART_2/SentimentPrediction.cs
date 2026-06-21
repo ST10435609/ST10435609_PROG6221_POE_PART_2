@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Microsoft.ML.Data;
 
-namespace nlp_example
+namespace ST10435609_PROG6221_POE_PART_2
 {//start of namespace
 
 

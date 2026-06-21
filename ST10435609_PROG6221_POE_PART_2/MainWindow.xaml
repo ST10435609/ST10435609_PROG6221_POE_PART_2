@@ -6,69 +6,69 @@
         xmlns:local="clr-namespace:ST10435609_PROG6221_POE_PART_2"
         mc:Ignorable="d"
         Title="MainWindow" Height="750" Width="1000">
-   
+
     <Grid>
         <!-- start of the grid -->
-        
-    <!-- grid for logo -->
+
+        <!-- grid for logo - carried over from Part 2 -->
         <Grid
             x:Name="logo_grid"
             Visibility="Visible"
-            >  <!-- start of logo grid --> 
-            
-            
+            >
+            <!-- start of logo grid -->
+
             <!-- image logo display -->
-            <Image Source= "/logo.jpg" 
+            <Image Source="/logo.jpg"
                    Height="300"
                    Width="400"
-                   Margin="0,0,0,250"
-                   />
-            
-            <!-- button to start AI -->
+                   Margin="0,0,0,250"/>
+
+            <!-- app title -->
             <TextBlock Text="Cybersecurity Awareness Bot"
                     Foreground="Cyan"
                     FontSize="28"
                     FontWeight="Bold"
                     Margin="0,330,0,10"
                     HorizontalAlignment="Center"/>
-            <Button 
-                    Content="Start AI" 
+
+            <!-- button to start AI -->
+            <Button
+                    Content="Start AI"
                     FontSize="18"
-                    Height="50" 
-                    Width="150" 
-                    Margin="0,250,0,100" 
+                    Height="50"
+                    Width="150"
+                    Margin="0,250,0,100"
                     FontWeight="Bold"
                     Background="Cyan"
                     Foreground="Black"
-                
-                    Click="start_ai"
-                    />
+                    Click="start_ai"/>
 
-        </Grid> <!-- end of logo grid -->
+        </Grid>
+        <!-- end of logo grid -->
 
+
+        <!-- grid for username - carried over from Part 2 -->
         <Grid
             x:Name="username_grid"
             Visibility="Hidden"
-            ><!-- start of username grid -->
-            
-            <!-- TextBox to prompt user -->
+            >
+            <!-- start of username grid -->
+
             <TextBlock Text="Enter UserName"
                 FontSize="26"
                 Foreground="#374151"
                 FontWeight="Bold"
                 Margin="390,250,0,20"/>
 
-            <TextBox 
+            <TextBox
                 x:Name="user_name"
                 Height="50"
                 FontSize="16"
                 Width="250"
                 Background="#374151"
                 Foreground="White"
-                BorderBrush="Cyan"
-                />
-            
-            <!-- button to submit username -->
+                BorderBrush="Cyan"/>
+
             <Button
                 Content="Submit"
                 Height="30"
@@ -77,21 +77,21 @@
                 FontWeight="Bold"
                 Background="Cyan"
                 Foreground="Black"
-                
-                Click="submit_name"
-                />
+                Click="submit_name"/>
 
-        </Grid><!-- end of username grid -->
+        </Grid>
+        <!-- end of username grid -->
 
-        <!-- Chat grid -->
+
+        <!-- Chat grid - carried over from Part 2 -->
         <Grid
             x:Name="chats_grid"
             Visibility="Hidden"
             >
             <!-- start of chats grid -->
 
-           <!-- list view to add chats -->
-            <ListView  
+            <!-- list view to add chats -->
+            <ListView
                 x:Name="chats_list"
                 Height="500"
                 Width="900"
@@ -99,16 +99,16 @@
                 Background="#111827"
                 Foreground="White"
                 FontSize="16"
-                BorderThickness="0"
-                />
+                BorderThickness="0"/>
+
             <TextBlock Text="Enter Your question"
                 FontSize="20"
                 Foreground="#374151"
                 FontWeight="Bold"
                 Margin="400,570,0,20"/>
-            
+
             <!-- TextBox for user input -->
-            <TextBox 
+            <TextBox
                 x:Name="user_input"
                 Height="50"
                 Width="300"
@@ -117,12 +117,11 @@
                 Background="#374151"
                 Foreground="White"
                 BorderBrush="Cyan"
-                Padding="10"
-                />
+                Padding="10"/>
 
             <!-- Button to send message -->
             <Button
-                Content="submit"
+                Content="Submit"
                 Height="30"
                 Width="100"
                 Margin="0,650,0,0"
@@ -130,12 +129,85 @@
                 FontWeight="Bold"
                 Background="Cyan"
                 Foreground="Black"
-                
-                Click="send_question"
-                />
+                Click="send_question"/>
 
-        </Grid><!-- end of chats grid -->
+            <!-- Part 3 - button to open the task manager page -->
+            <Button
+                Content="View Tasks"
+                Height="30"
+                Width="120"
+                Margin="200,650,0,0"
+                FontSize="14"
+                FontWeight="Bold"
+                Background="Cyan"
+                Foreground="Black"
+                Click="view_tasks_button"/>
 
-    </Grid><!-- end of parent grid -->
-    
+        </Grid>
+        <!-- end of chats grid -->
+
+
+        <!-- Tasks grid - Part 3 Task 1 -->
+        <!-- same layout pattern as your tasks_demo XAML -->
+        <Grid
+            x:Name="tasks_grid"
+            Visibility="Hidden"
+            >
+            <!-- start of tasks grid -->
+
+            <TextBlock Text="Your Cybersecurity Tasks"
+                FontSize="22"
+                Foreground="Cyan"
+                FontWeight="Bold"
+                Margin="0,20,0,0"
+                HorizontalAlignment="Center"/>
+
+            <!-- list view to display all tasks from the database -->
+            <!-- double click to mark done or delete - same as tasks_demo -->
+            <ListView
+                x:Name="view_tasks"
+                Height="400"
+                Width="900"
+                Margin="0,60,0,220"
+                Background="#111827"
+                Foreground="White"
+                FontSize="14"
+                BorderThickness="0"
+                MouseDoubleClick="manage_tasks"/>
+
+            <TextBlock
+                Text="Double-click a PENDING task to mark it done. Double-click a DONE task to delete it."
+                FontSize="13"
+                Foreground="#374151"
+                Margin="0,480,0,0"
+                HorizontalAlignment="Center"/>
+
+            <!-- back to chat button - same as back_to_chats in tasks_demo -->
+            <Button
+                Content="Back to Chat"
+                Height="35"
+                Width="150"
+                Margin="0,530,0,0"
+                FontWeight="Bold"
+                Background="Cyan"
+                Foreground="Black"
+                Click="back_to_chat"/>
+
+            <!-- refresh button to reload tasks from the database -->
+            <Button
+                Content="Refresh Tasks"
+                Height="35"
+                Width="150"
+                Margin="0,590,0,0"
+                FontWeight="Bold"
+                Background="#374151"
+                Foreground="White"
+                Click="refresh_tasks"/>
+
+        </Grid>
+        <!-- end of tasks grid -->
+
+    </Grid>
+    <!-- end of parent grid -->
+
 </Window>

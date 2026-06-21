@@ -5,113 +5,81 @@ using System.Windows.Controls;
 
 namespace ST10435609_PROG6221_POE_PART_2
 {//start of namespace
+
     public class tasks
     {//start of class
-     //create a method to manage the task
 
-        //global connection string, with varables for decleration
-        string connection = @"Data source=(localdb)\task_demo;Database=prog_tasks";
+        // connection string updated to match your actual database
+        // from your SQL query: database = prog_task, table = demo_tasks
+        string connection = @"Data Source=(localdb)\MSSQLLocalDB;Database=prog_task;Integrated Security=True";
 
-        //create a method to test the connection
+
+        // method to test the connection
         public void test_connection()
-        {//start test connection medthod
-            /*SqlConnection - used to connect to the database
-             * SqlCommand - used to execute sql commands, all of them
-             * SqlDataReader - used to read data from the database
-             *                  the SqlCommand, and show user data
-             *                  
-             */
+        {//start of test_connection method
 
-            //connect to the database
             using (SqlConnection conn = new SqlConnection(connection))
             {
-                //try to execute the command, if it fails, catch the error and show the user
                 try
                 {
-                    //open the connection and close it, to test if the connection is valid
                     conn.Open();
-
-                    //put the database query and run it
                     MessageBox.Show("Connection to the database is successful!");
-
-                    //the connection will be closed automatically by the using block
                 }
                 catch (Exception error)
                 {
-                    //show the user the error
                     MessageBox.Show("Error: " + error.Message);
                 }
             }
-        }//end of connection test method
+
+        }//end of test_connection method
 
 
-        //method too insert a task into the database
+        // method to insert a task into the database
         public void insert_task(string name, string description, string dueDate, string status)
         {//start of insert_task method
-            //connect to the database
+
             using (SqlConnection connects = new SqlConnection(connection))
             {
-                //try to execute the command, if it fails, catch the error and show the user
                 try
                 {
-
-
-                    //open the connection and close it, to test if the connection is valid
                     connects.Open();
-                    string query = $"insert into demo_tasks  values ('{name}', '{description}', '{dueDate}', '{status}')";
 
-                    //use the sql command object to execute the query
+                    // using the same demo_tasks table from your SQL script
+                    string query = $"insert into demo_tasks (task_name, task_description, task_dueDate, task_status) values ('{name}', '{description}', '{dueDate}', '{status}')";
+
                     SqlCommand run_query = new SqlCommand(query, connects);
-                    //the run the query as a nonExecuteQuery() 
                     run_query.ExecuteNonQuery();
                     connects.Close();
 
-
                     MessageBox.Show("Task added successfully!");
-                    //the connection will be closed automatically by the using block
                 }
                 catch (Exception error)
                 {
-                    //show the user the error
                     MessageBox.Show("Error: " + error.Message);
                 }
             }
+
         }//end of insert_task method
 
-        //method to auto load the tasks from the database and show them to the user
+
+        // method to load all tasks from the database and show them in a ListView
         public void load_tasks(ListView view_tasks)
-        {//start of load task method
-            /*SqlConnection - used to connect to the database
-            * SqlCommand - used to execute sql commands, all of them
-            * SqlDataReader - used to read data from the database
-            *                  the SqlCommand, and show user data
-            *                  
-            */
+        {//start of load_tasks method
 
-            //create an instance of the connection to the database
             SqlConnection connects = new SqlConnection(connection);
-
-            //open conection
             connects.Open();
 
-            //temp var to hold the query
             string query = $"select * from demo_tasks";
-
-            //use slqcommand to execute the query
             SqlCommand run_query = new SqlCommand(query, connects);
-
-            //reading what the command found and show/display it using SqlDataReader
             SqlDataReader data_collect = run_query.ExecuteReader();
 
-            //temp variable for boolean, ro get the status of the data found or not found, not found = false, found = true
             bool data_found = false;
 
             while (data_collect.Read())
             {//start of while loop
-                //if data is found, then show it to the user
+
                 data_found = true;
-                //show the data to the user
-                //getting all the columns by their names and showing them to the user, using the ListView control
+
                 string task_id = data_collect["task_id"].ToString();
                 string task_name = data_collect["task_name"].ToString();
                 string task_description = data_collect["task_description"].ToString();
@@ -122,56 +90,46 @@ namespace ST10435609_PROG6221_POE_PART_2
 
             }//end of while loop
 
-            //display message to the user if no data is found
             if (!data_found)
             {
                 view_tasks.Items.Add("No tasks found in the database.");
             }
 
-
             connects.Close();
 
-        }//end of load task method
+        }//end of load_tasks method
 
-        //method to update task
+
+        // method to mark a task as done
         public void update_taskStatus(int id)
         {//start of update_taskStatus method
-            //create connection
 
             SqlConnection connects = new SqlConnection(connection);
-
-            //then open connection
-
             connects.Open();
-            //then use sql command to run the query
-            //temp variable to hold  the query
 
             string query = $"update demo_tasks set task_status='done' where task_id={id}";
             SqlCommand run_query = new SqlCommand(query, connects);
             run_query.ExecuteNonQuery();
 
-
             connects.Close();
 
         }//end of update_taskStatus method
 
-        //method to delete
-        public void delete_task(int id)
-        { //start of delete method
-          //connect
-            SqlConnection connects = new SqlConnection(connection);
 
-            //the open connection
+        // method to delete a task
+        public void delete_task(int id)
+        {//start of delete_task method
+
+            SqlConnection connects = new SqlConnection(connection);
             connects.Open();
 
-            //temp variable to hold query
-            string query = $"delete demo_tasks where task_id={id}";
+            string query = $"delete from demo_tasks where task_id={id}";
             SqlCommand run_query = new SqlCommand(query, connects);
             run_query.ExecuteNonQuery();
 
             connects.Close();
 
-        }//end  of delete method
+        }//end of delete_task method
 
 
     }//end of class
