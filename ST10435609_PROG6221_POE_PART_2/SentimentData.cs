@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ST10435609_PROG6221_POE_PART_2
+namespace ST10435609_PROG6221_POE_PART_3
 {//start of namespace
 
 

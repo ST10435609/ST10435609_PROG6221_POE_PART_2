@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace ST10435609_PROG6221_POE_PART_2
+namespace ST10435609_PROG6221_POE_PART_3
 {//start of namespace
 
     public class tasks

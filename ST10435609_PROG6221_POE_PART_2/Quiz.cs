@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ST10435609_PROG6221_POE_PART_2
+namespace ST10435609_PROG6221_POE_PART_3
 {//start of namespace
 
     public class quiz

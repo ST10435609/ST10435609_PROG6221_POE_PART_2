@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ST10435609_PROG6221_POE_PART_2
+namespace ST10435609_PROG6221_POE_PART_3
 {//start of namespace
 
     public class activity_log
